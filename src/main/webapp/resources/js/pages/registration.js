@@ -10,10 +10,10 @@ function registrationController($scope, $location, $http) {
     var url = "" + $location.$$absUrl;
     $scope.displayUserNameError = (url.indexOf("nameError") >= 0);
     $scope.displayPasswordError = (url.indexOf("passwordError") >= 0);
-//    $scope.displaySuccessMessage = (url.indexOf("success") >= 0);
 
     $scope.createUser = function (registrationForm){
         $scope.displayIncorrectPasswordMessage = false;
+        $scope.displayUserNameError = false;
         if (!angular.equals($scope.user.password,$scope.confirmPassword)) {
             $scope.displayIncorrectPasswordMessage = true;
             console.log("Incorrect password")
@@ -30,10 +30,9 @@ function registrationController($scope, $location, $http) {
 
         $http.post(url, $.param($scope.user), config)
             .success(function (data) {
-            //    var url = $location.search('NameError');
-                var error = ($location.search().NameError);
+                var error = data;
 
-                if (error === true){
+                if (error === "nameError"){
                     $scope.displayUserNameError = true;
                     return;
                 }  else {
