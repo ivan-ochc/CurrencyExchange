@@ -26,9 +26,6 @@
                 <div class="alert alert-info" ng-class="{'': displaySuccessUserCreationMessage == true, 'none': displaySuccessUserCreationMessage == false}">
                     <spring:message code="registration.successMessage" />
                 </div>
-                <%--${pwdMessage}--%>
-                <%--${userMessage}--%>
-                <%--${errorMessage}--%>
                 <div>
                     <label>
                 <span class="alert-error"
@@ -113,9 +110,9 @@
             </div>
            </form>
            <form  method="post" action="login">
-            <%--<a title='<spring:message code="login.registration"/>' href="<c:url value='/registration'/>">--%>
+
             <button type="submit" class="btn btn-inverse btn-block"><spring:message code="login.refer" /></button>
-            <%--</a>--%>
+
         </form>
 
     </div>
