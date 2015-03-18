@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+    <!-- Master -->
+    <definition name="master.page" template="/public/template/master.jsp">
+        <put-attribute name="header" value="/public/template/header.jsp"/>
+    </definition>
+
+    <!--  Pages -->
+    <definition name="login" extends="master.page">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="body" value="/public/login.jsp"/>
+    </definition>
+    <definition name="registration" extends="master.page">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="body" value="/public/registration.jsp"/>
+    </definition>
+    <definition name="welcomePage" extends="master.page">
+        <put-attribute name="body" value="/protected/welcomePage.jsp"/>
+    </definition>
+    <definition name="myOrdersPage" extends="master.page">
+        <put-attribute name="body" value="/protected/myOrdersPage.jsp"/>
+    </definition>
+    <definition name="allOrdersPage" extends="master.page">
+        <put-attribute name="body" value="/protected/allOrdersPage.jsp"/>
+    </definition>
+    <definition name="myTransactionsPage" extends="master.page">
+        <put-attribute name="body" value="/protected/myTransactionsPage.jsp"/>
+    </definition>
+    <definition name="adminPage" extends="master.page">
+        <put-attribute name="body" value="/protected/adminPage.jsp"/>
+    </definition>
+
+
+</tiles-definitions>
