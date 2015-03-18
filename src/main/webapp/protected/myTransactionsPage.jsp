@@ -1,4 +1,3 @@
-<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -27,7 +26,6 @@
             </tr>
             </thead>
             <tbody>
-            <%--<c:forEach items="${recordList}" var="order">--%>
             <tr ng-repeat="transaction in page.source">
                 <td class="tdOrdersCentered">{{transaction.user.name}}</td>
                 <td class="tdOrdersCentered">{{transaction.transactionAmount}}</td>
@@ -44,7 +42,6 @@
                            class="btn btn-inverse" data-toggle="modal">
                             <i class="icon-plus"></i>
                         </a>
-                        <%--<a href="${pageContext.request.contextPath}/protected/purse/delete/{{order.id}}" role="button" class="btn btn-inverse" data-toggle="modal"><i class="icon-minus"></i></a>--%>
                         <a href="#declineTransactionModal"
                            ng-click="selectedTransaction(transaction);"
                            role="button"
