@@ -1,4 +1,3 @@
-<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,7 +28,6 @@
             </tr>
             </thead>
             <tbody>
-            <%--<c:forEach items="${recordList}" var="order">--%>
             <tr ng-repeat="order in page.source" ng-class="{'strikeout': order.amount == 0, '': order.amount != 0}">
                 <td class="tdOrdersCentered">{{order.authorName}}</td>
                 <td class="tdOrdersCentered">{{order.orderType}}</td>
