@@ -1,4 +1,3 @@
-<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -30,7 +29,6 @@
             </tr>
             </thead>
             <tbody>
-            <%--<c:forEach items="${recordList}" var="order">--%>
             <tr ng-repeat="order in page.source">
                 <td class="tdOrdersCentered">{{order.orderType}}</td>
                 <td class="tdOrdersCentered">{{order.currency}}</td>
@@ -47,7 +45,6 @@
                            class="btn btn-inverse" data-toggle="modal">
                             <i class="icon-minus"></i>
                         </a>
-                        <%--<a href="${pageContext.request.contextPath}/protected/purse/delete/{{order.id}}" role="button" class="btn btn-inverse" data-toggle="modal"><i class="icon-minus"></i></a>--%>
                         <a href="#updateOrdersModal"
                            ng-click="selectedOrder(order);"
                            role="button"
