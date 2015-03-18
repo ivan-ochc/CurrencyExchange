@@ -14,7 +14,7 @@
     </div>
     <div class="modal-body">
         <form name="deleteUserForm" novalidate>
-            <p><spring:message code="delete.confirm"/>:&nbsp;{{user.name}}?</p>
+            <p><spring:message code="adminPage.confirm"/>&nbsp;{{user.name}}?</p>
 
             <input type="submit"
                    class="btn btn-inverse"
