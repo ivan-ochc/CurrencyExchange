@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="row-fluid">
-    <div class="span4 offset4 well" ng-controller="registrationController">
+    <div ng-cloak class="span4 offset4 well" ng-controller="registrationController">
         <legend><spring:message code="registration.header" /></legend>
 
             <form name="registrationForm" novalidate>
