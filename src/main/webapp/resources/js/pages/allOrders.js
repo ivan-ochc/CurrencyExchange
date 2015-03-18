@@ -26,8 +26,6 @@ function allOrdersController($scope, $http) {
 
         $scope.startDialogAjaxRequest();
 
-        //    var config = {params: {page: $scope.pageToGet}};
-
         $http.get(url)
             .success(function (data) {
                 $scope.finishAjaxCallOnSuccess(data, null, false);
@@ -69,14 +67,8 @@ function allOrdersController($scope, $http) {
 
         var config = {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}};
 
-        //    $scope.addSearchParametersIfNeeded(config, false);
-
-//        $scope.startDialogAjaxRequest();
-
         if ($scope.order.amount < $scope.exchangeTransaction.transactionAmount) {
             $scope.displayTransactionErrorMessage = true;
-//            console.log("test");
-//            $scope.exit("#addTransactionModal");
         } else {
         $scope.startDialogAjaxRequest();
         $http.post(url, $.param($scope.exchangeTransaction), config)
@@ -122,7 +114,6 @@ function allOrdersController($scope, $http) {
 
     $scope.handleErrorInDialogs = function (status) {
         $("#loadingModal").modal('hide');
-        //    $scope.state = $scope.previousState;
 
         // illegal access
         if(status == 403){
