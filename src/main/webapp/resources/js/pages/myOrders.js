@@ -24,8 +24,6 @@ function myOrdersController($scope, $http) {
 
         $scope.startDialogAjaxRequest();
 
-        //    var config = {params: {page: $scope.pageToGet}};
-
         $http.get(url)
             .success(function (data) {
                 $scope.finishAjaxCallOnSuccess(data, null, false);
@@ -66,8 +64,6 @@ function myOrdersController($scope, $http) {
 
         var config = {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}};
 
-        //    $scope.addSearchParametersIfNeeded(config, false);
-
           $scope.startDialogAjaxRequest();
 
         $http.post(url, $.param($scope.order), config)
@@ -92,10 +88,6 @@ function myOrdersController($scope, $http) {
         var url = $scope.url + "/" + $scope.lastAction
 
           $scope.startDialogAjaxRequest();
-
-        //     var config = {}
-
-        //    $scope.addSearchParametersIfNeeded(config, false);
 
         $http.put(url, $scope.order)
             .success(function (data) {
@@ -160,7 +152,6 @@ function myOrdersController($scope, $http) {
 
     $scope.handleErrorInDialogs = function (status) {
         $("#loadingModal").modal('hide');
-        //    $scope.state = $scope.previousState;
 
         // illegal access
         if(status == 403){
