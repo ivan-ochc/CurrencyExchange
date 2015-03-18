@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <div id="declineTransactionModal"
-     class="modal hide fade in centering"
+     class="modal hide fade in centering insertAndUpdateDialogs"
      role="dialog"
      aria-hidden="true">
     <div class="modal-header">
@@ -39,7 +39,7 @@
 
 
 <div id="acceptTransactionModal"
-     class="modal hide fade in centering"
+     class="modal hide fade in centering insertAndUpdateDialogs"
      role="dialog"
      aria-hidden="true">
     <div class="modal-header">
