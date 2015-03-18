@@ -50,7 +50,6 @@ function adminController($scope, $http) {
         $scope.populateTable(data);
         $("#loadingModal").modal('hide');
 
-//        if(!isPagination){
             if(modalId){
                 $scope.exit(modalId);
             }
