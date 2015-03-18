@@ -117,9 +117,6 @@ function myTransactionsController($scope, $http) {
 
     $scope.handleErrorInDialogs = function (status) {
         $("#loadingModal").modal('hide');
-        //    $scope.state = $scope.previousState;
-
-        // illegal access
         if(status == 403){
             $scope.errorIllegalAccess = true;
             return;
