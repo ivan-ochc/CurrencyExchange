@@ -22,9 +22,9 @@
         <%--<form  method="post" action="registration">--%>
         <a href="<c:url value='/registration'/>" class="btn btn-inverse btn-block" role="button">
             <spring:message code="login.registration"/>
-            <%--<button type="submit" class="btn btn-inverse btn-block"><spring:message code="login.registration" /></button>--%>
+
         </a>
-        <%--</form>--%>
+
     </div>
 </div>
 </div>
