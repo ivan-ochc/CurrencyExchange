@@ -73,10 +73,15 @@
                       ng-show="displayValidationError && registrationForm.password.$error.required">
                                     <spring:message code="registration.password" />
                                 </span>
+                <span class="alert-error"
+                      ng-show="displayValidationError && registrationForm.password.$error.minlength">
+                                    <spring:message code="registration.passwordLength" />
+                                </span>
                 </label>
                 <input name="password"
                        type="password"
                        ng-model="user.password"
+                       ng-minlength="6"
                        required
                        class="span12"
                        placeholder="Password">
