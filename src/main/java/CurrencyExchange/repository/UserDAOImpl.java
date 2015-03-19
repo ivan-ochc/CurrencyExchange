@@ -24,9 +24,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public String getUser(User user) {
- //       Query query = this.sessionFactory.getCurrentSession().createQuery("FROM User U");
        Query query = this.sessionFactory.getCurrentSession().createQuery("select u.name FROM User u where u.name ='"+user.getName()+"' ");
-//        String name = String.valueOf(this.sessionFactory.getCurrentSession().createQuery("FROM User u where u.name = '"+user.getName()+"' "));
         List<String> nameList = query.list();
         String name = null;
 
@@ -39,7 +37,6 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int getUserId(String userName) {
         Query query = this.sessionFactory.getCurrentSession().createQuery("select u.id FROM User u where u.name = '"+userName+"' ");
-//        String name = String.valueOf(this.sessionFactory.getCurrentSession().createQuery("FROM User u where u.name = '"+user.getName()+"' "));
         List<Integer> idList = query.list();
         int userId = 0;
 
