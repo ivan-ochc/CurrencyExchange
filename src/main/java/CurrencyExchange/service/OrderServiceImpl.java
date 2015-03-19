@@ -56,7 +56,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public OrdersListVO findMyOrders(String userName) {
-    //    Page<Order> result = executeQueryFindAll();
        List<Order> result = orderDAO.getMyOrdersList(userName);
        return new OrdersListVO(result);
     }
