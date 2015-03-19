@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import java.security.Principal;
 
 @Controller
-//@RequestMapping(value = "/protected/home")
 public class IndexController {
 
     @RequestMapping(value = "/protected/home")
