@@ -18,8 +18,6 @@
                 <button type="submit" name="submit" class="btn btn-inverse btn-block"><spring:message code="login.signIn" /></button>
         </form>
 
-
-        <%--<form  method="post" action="registration">--%>
         <a href="<c:url value='/registration'/>" class="btn btn-inverse btn-block" role="button">
             <spring:message code="login.registration"/>
 
