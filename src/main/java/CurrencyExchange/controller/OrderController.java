@@ -34,24 +34,13 @@ public class OrderController {
 
     @RequestMapping(value = "/myOrders",method = {RequestMethod.GET}) public ModelAndView getMyOrdersPage() {
         ModelAndView myOrdersView = new ModelAndView("myOrdersPage");
-   //     purseMap.put("order", new Order());
-   //     purseMap.put("sumOfAllCosts", orderService.getSumOfAllCosts(session.getAttribute("currentUser").toString()));
         return myOrdersView;
     }
 
     @RequestMapping(value = "/allOrders",method = {RequestMethod.GET}) public ModelAndView getAllOrdersPage() {
         ModelAndView allOrdersView = new ModelAndView("allOrdersPage");
-        //     purseMap.put("order", new Order());
-        //     purseMap.put("sumOfAllCosts", orderService.getSumOfAllCosts(session.getAttribute("currentUser").toString()));
         return allOrdersView;
     }
-
-//    @RequestMapping (value = "/list", produces = "application/json")
-//    public ResponseEntity<?> getListOfRecords(HttpSession session) {
-//
-//        orderService.listRecord(session.getAttribute("currentUser").toString());
-//
-//            }
 
 
     @RequestMapping(value = "/myOrders",method = RequestMethod.GET, produces = "application/json")
@@ -86,14 +75,13 @@ public class OrderController {
 
     @RequestMapping(value = "/update", produces = "application/json")
     public ResponseEntity<?> updateOrder(@RequestBody Order order, HttpSession session){
-    //    Order order = orderService.getOrder(orderId);
         orderService.updateOrder(order);
         return createMyOrdersListResponse(session);
     }
 
     @RequestMapping(value = "/addTransaction/{orderId}", produces = "application/json")
     public ResponseEntity<?> addTransaction
-            (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("orderId") Integer orderId, HttpSession session){
+    (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("orderId") Integer orderId, HttpSession session){
         User user = userManager.getUserObject(userManager.getUserId(session.getAttribute("currentUser").toString()));
         user.addToTransaction(exchangeTransaction);
         Order order = orderService.getOrder(orderId);
@@ -112,14 +100,12 @@ public class OrderController {
 
     private ResponseEntity<?> createMyOrdersListResponse(HttpSession session) {
         OrdersListVO myOrdersListVO = orderService.findMyOrders(session.getAttribute("currentUser").toString());
-     //   List<Order> orders = orderService.getMyOrdersList(session.getAttribute("currentUser").toString());
         return returnListToUser(myOrdersListVO);
     }
 
 
     private ResponseEntity<?> createAllOrdersListResponse(HttpSession session) {
         OrdersListVO allOrdersListVO = orderService.findAllOrders(session.getAttribute("currentUser").toString());
-        //   List<Order> orders = orderService.getMyOrdersList(session.getAttribute("currentUser").toString());
         return returnListToUser(allOrdersListVO);
     }
 
