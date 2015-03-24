@@ -2,11 +2,12 @@ package CurrencyExchange.model;
 
 
 import org.codehaus.jackson.annotate.JsonIgnore;
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Order implements java.io.Serializable{
     private String authorName;
     private String orderType;
     private String currency;
-    private double exchangeRate;
+    private BigDecimal exchangeRate;
     private int amount;
     private Date orderDate;
     @ManyToOne
@@ -92,11 +93,11 @@ public class Order implements java.io.Serializable{
         this.currency = currency;
     }
 
-    public double getExchangeRate() {
+    public BigDecimal getExchangeRate() {
         return exchangeRate;
     }
 
-    public void setExchangeRate(double exchangeRate) {
+    public void setExchangeRate(BigDecimal exchangeRate) {
         this.exchangeRate = exchangeRate;
     }
 
