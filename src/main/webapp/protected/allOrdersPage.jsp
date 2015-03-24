@@ -18,17 +18,17 @@
         <table class="table table-bordered data">
             <thead>
             <tr>
-                <th scope="col"><spring:message code="order.author"/></th>
-                <th scope="col"><spring:message code="order.type"/></th>
-                <th scope="col"><spring:message code="order.currency"/></th>
-                <th scope="col"><spring:message code="order.amount"/></th>
-                <th scope="col"><spring:message code="order.exchangeRate"/></th>
-                <th scope="col"><spring:message code="order.date"/></th>
+                <th scope="col"><a href="" ng-click="predicate = '-authorName'; reverse=!reverse"> <spring:message code="order.author"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-orderType'; reverse=!reverse"><spring:message code="order.type"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-currency'; reverse=!reverse"><spring:message code="order.currency"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-amount'; reverse=!reverse"><spring:message code="order.amount"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-exchangeRate'; reverse=!reverse"><spring:message code="order.exchangeRate"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-orderDate'; reverse=!reverse"><spring:message code="order.date"/></a></th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="order in page.source" ng-class="{'strikeout': order.amount == 0, '': order.amount != 0}">
+            <tr ng-repeat="order in page.source | orderBy:predicate:reverse" ng-class="{'strikeout': order.amount == 0, '': order.amount != 0}" >
                 <td class="tdOrdersCentered">{{order.authorName}}</td>
                 <td class="tdOrdersCentered">{{order.orderType}}</td>
                 <td class="tdOrdersCentered">{{order.currency}}</td>
