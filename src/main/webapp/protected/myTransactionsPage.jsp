@@ -17,16 +17,16 @@
         <table class="table table-bordered data">
             <thead>
             <tr>
-                <th scope="col"><spring:message code="transaction.author"/></th>
-                <th scope="col"><spring:message code="transaction.amount"/></th>
-                <th scope="col"><spring:message code="transaction.currency"/></th>
-                <th scope="col"><spring:message code="transaction.exchangeRate"/></th>
-                <th scope="col"><spring:message code="transaction.orderType"/></th>
+                <th scope="col"><a href="" ng-click="predicate = '-user.name'; reverse=!reverse"><spring:message code="transaction.author"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-transactionAmount'; reverse=!reverse"><spring:message code="transaction.amount"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-order.currency'; reverse=!reverse"><spring:message code="transaction.currency"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-order.exchangeRate'; reverse=!reverse"><spring:message code="transaction.exchangeRate"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-order.orderType'; reverse=!reverse"><spring:message code="transaction.orderType"/></a></th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="transaction in page.source">
+            <tr ng-repeat="transaction in page.source | orderBy:predicate:reverse">
                 <td class="tdOrdersCentered">{{transaction.user.name}}</td>
                 <td class="tdOrdersCentered">{{transaction.transactionAmount}}</td>
                 <td class="tdOrdersCentered">{{transaction.order.currency}}</td>
