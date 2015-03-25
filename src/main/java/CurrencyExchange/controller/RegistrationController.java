@@ -1,8 +1,8 @@
-package CurrencyExchange.controller;
+package currencyexchange.controller;
 
-import CurrencyExchange.model.Role;
-import CurrencyExchange.model.User;
-import CurrencyExchange.service.UserManager;
+import currencyexchange.model.Role;
+import currencyexchange.model.User;
+import currencyexchange.service.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -44,8 +44,7 @@ public class RegistrationController {
             userManager.saveUser(user);
             return "success";
         }
-        else
-        {
+        else {
             return "nameError";
         }
 
