@@ -5,19 +5,17 @@
 						   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						   http://www.springframework.org/schema/context http://www.springframework.org/schema/task/spring-context-3.0.xsd">
 
-    <!-- Basic Configurations -->
     <context:annotation-config/>
 
     <context:component-scan base-package="currencyexchange.controller"/>
     <context:component-scan base-package="currencyexchange.model"/>
     <context:component-scan base-package="currencyexchange.repository"/>
     <context:component-scan base-package="currencyexchange.service"/>
-    <!-- SpringJPA -->
+
     <import resource="spring-jpa.xml"/>
 
-    <!-- SpringMVC -->
     <import resource="spring-mvc.xml"/>
-    <!-- SpringSecurity -->
+
     <import resource="spring-security.xml"/>
 
 </beans>
