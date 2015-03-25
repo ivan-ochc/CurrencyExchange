@@ -1,6 +1,6 @@
-package CurrencyExchange.vo;
+package currencyexchange.vo;
 
-import CurrencyExchange.model.User;
+import currencyexchange.model.User;
 
 import java.util.List;
 

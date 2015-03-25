@@ -1,8 +1,8 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
-import CurrencyExchange.model.User;
-import CurrencyExchange.repository.UserDAO;
-import CurrencyExchange.vo.UserListVO;
+import currencyexchange.model.User;
+import currencyexchange.repository.UserDAO;
+import currencyexchange.vo.UserListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

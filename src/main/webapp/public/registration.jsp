@@ -104,6 +104,22 @@
                        required
                        placeholder="Retype Password">
 
+                <div>
+
+                        <label>
+                                <span class="alert-error"
+                                      ng-show="displayValidationError && registrationForm.location.$error.required">
+                                    <spring:message code="required"/>
+                                </span>
+                        </label>
+                        <select name="location" ng-model="user.location"  class="span12" required>
+                            <option selected value>Choose location:</option>
+                            <option >Mykhaila Hryshka St</option>
+                            <option >Petra Hryhorenka Ave</option>
+                            <option >Kharkivs'ke Hwy</option>
+                        </select>
+                </div>
+
                 <button type="submit"
                         name="submit"
                         id="btnSubmit"

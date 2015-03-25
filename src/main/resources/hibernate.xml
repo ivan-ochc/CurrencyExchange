@@ -5,8 +5,8 @@
 
 <hibernate-configuration>
     <session-factory>
-        <mapping class="CurrencyExchange.model.User"></mapping>
-        <mapping class="CurrencyExchange.model.Order"></mapping>
-        <mapping class="CurrencyExchange.model.ExchangeTransaction"></mapping>
+        <mapping class="currencyexchange.model.User"></mapping>
+        <mapping class="currencyexchange.model.Order"></mapping>
+        <mapping class="currencyexchange.model.ExchangeTransaction"></mapping>
     </session-factory>
 </hibernate-configuration>

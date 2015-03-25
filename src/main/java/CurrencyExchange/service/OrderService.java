@@ -1,7 +1,7 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
-import CurrencyExchange.model.Order;
-import CurrencyExchange.vo.OrdersListVO;
+import currencyexchange.model.Order;
+import currencyexchange.vo.OrdersListVO;
 
 import java.util.List;
 

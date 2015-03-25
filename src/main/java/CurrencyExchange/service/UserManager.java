@@ -1,7 +1,7 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
-import CurrencyExchange.model.User;
-import CurrencyExchange.vo.UserListVO;
+import currencyexchange.model.User;
+import currencyexchange.vo.UserListVO;
 
 public interface UserManager {
 

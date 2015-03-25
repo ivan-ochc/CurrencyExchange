@@ -1,8 +1,8 @@
-package CurrencyExchange.controller;
+package currencyexchange.controller;
 
-import CurrencyExchange.model.User;
-import CurrencyExchange.service.UserManager;
-import CurrencyExchange.vo.UserListVO;
+import currencyexchange.model.User;
+import currencyexchange.service.UserManager;
+import currencyexchange.vo.UserListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

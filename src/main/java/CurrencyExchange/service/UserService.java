@@ -1,9 +1,9 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import CurrencyExchange.model.User;
-import CurrencyExchange.repository.UserRepository;
+import currencyexchange.model.User;
+import currencyexchange.repository.UserRepository;
 
 @Service
 public class UserService {

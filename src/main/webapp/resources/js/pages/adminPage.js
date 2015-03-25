@@ -1,7 +1,7 @@
 function adminController($scope, $http) {
 
     $scope.state = "";
-    $scope.url = "/CurrencyExchange/protected/adminPage";
+    $scope.url = "/currencyexchange/protected/adminPage";
 
 
     $scope.getUserList = function(){

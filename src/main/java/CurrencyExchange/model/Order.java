@@ -1,4 +1,4 @@
-package CurrencyExchange.model;
+package currencyexchange.model;
 
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -26,6 +26,8 @@ public class Order implements java.io.Serializable{
     private String currency;
     private BigDecimal exchangeRate;
     private int amount;
+    private String location;
+    private String contactInfo;
     private Date orderDate;
     @ManyToOne
     @JoinColumn(name = "userId", insertable = true, updatable = false)
@@ -118,5 +120,21 @@ public class Order implements java.io.Serializable{
         exchangeTransactions.remove(exchangeTransaction);
         exchangeTransaction.setOrder(null);
 
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

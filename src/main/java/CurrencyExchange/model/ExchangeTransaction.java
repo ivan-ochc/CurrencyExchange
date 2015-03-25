@@ -1,4 +1,4 @@
-package CurrencyExchange.model;
+package currencyexchange.model;
 
 import javax.persistence.*;
 

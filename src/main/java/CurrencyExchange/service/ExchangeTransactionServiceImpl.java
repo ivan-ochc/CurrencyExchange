@@ -1,8 +1,8 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
-import CurrencyExchange.model.ExchangeTransaction;
-import CurrencyExchange.repository.ExchangeTransactionDAO;
-import CurrencyExchange.vo.TransactionsListVO;
+import currencyexchange.model.ExchangeTransaction;
+import currencyexchange.repository.ExchangeTransactionDAO;
+import currencyexchange.vo.TransactionsListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,7 @@
-package CurrencyExchange.repository;
+package currencyexchange.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import CurrencyExchange.model.User;
+import currencyexchange.model.User;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
     User findByName(String name);

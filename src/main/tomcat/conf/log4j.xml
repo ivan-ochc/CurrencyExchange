@@ -14,7 +14,7 @@
         <level value="INFO" />
     </logger>
 
-    <logger name="CurrencyExchange.controller">
+    <logger name="currencyexchange.controller">
         <level value="INFO" />
     </logger>
 

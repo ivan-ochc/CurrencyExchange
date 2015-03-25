@@ -3,7 +3,7 @@ function myOrdersController($scope, $http) {
 
     $scope.lastAction = '';
 
-    $scope.url = "/CurrencyExchange/protected/orders";
+    $scope.url = "/currencyexchange/protected/orders";
 
     $scope.errorOnSubmit = false;
     $scope.errorIllegalAccess = false;

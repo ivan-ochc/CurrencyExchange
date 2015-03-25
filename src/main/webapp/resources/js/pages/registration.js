@@ -1,7 +1,7 @@
 function registrationController($scope, $location, $http) {
 
     $scope.displayValidationError = false;
-    $scope.url = "/CurrencyExchange";
+    $scope.url = "/currencyexchange";
     $scope.displayIncorrectPasswordMessage = false;
     $scope.displaySuccessUserCreationMessage = false;
 

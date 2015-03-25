@@ -23,6 +23,8 @@
                 <th scope="col"><a href="" ng-click="predicate = '-currency'; reverse=!reverse"><spring:message code="order.currency"/></a></th>
                 <th scope="col"><a href="" ng-click="predicate = '-amount'; reverse=!reverse"><spring:message code="order.amount"/></a></th>
                 <th scope="col"><a href="" ng-click="predicate = '-exchangeRate'; reverse=!reverse"><spring:message code="order.exchangeRate"/></a></th>
+                <th scope="col"><a href="" ng-click="predicate = '-location'; reverse=!reverse"><spring:message code="order.location"/></a></th>
+                <th scope="col"><spring:message code="order.contactInfo"/></th>
                 <th scope="col"><a href="" ng-click="predicate = '-orderDate'; reverse=!reverse"><spring:message code="order.date"/></a></th>
                 <th scope="col"></th>
             </tr>
@@ -34,6 +36,8 @@
                 <td class="tdOrdersCentered">{{order.currency}}</td>
                 <td class="tdOrdersCentered">{{order.amount}}</td>
                 <td class="tdOrdersCentered">{{order.exchangeRate}}</td>
+                <td class="tdOrdersCentered">{{order.location}}</td>
+                <td class="tdOrdersCentered">{{order.contactInfo}}</td>
                 <td class="tdOrdersCentered">{{order.orderDate  | date : 'dd-MM-yyyy HH-mm-ss'}}</td>
                 <td class="width15">
                     <div class="text-center">

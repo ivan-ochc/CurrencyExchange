@@ -102,6 +102,41 @@
                         </label>
                     </div>
                 </div>
+                <div>
+                    <div class="input-append">
+                        <select name="location" ng-model="order.location" required>
+                            <option selected value>Choose location:</option>
+                            <option >Mykhaila Hryshka St</option>
+                            <option >Petra Hryhorenka Ave</option>
+                            <option >Kharkivs'ke Hwy</option>
+                        </select>
+                    </div>
+                    <div class="input-append">
+                        <label>
+                                <span class="alert alert-error"
+                                      ng-show="displayValidationError && newOrderForm.location.$error.required">
+                                    <spring:message code="required"/>
+                                </span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-append">
+                        <input  name="contactInfo"
+                                ng-model="order.contactInfo"
+                                type="text"
+                                required
+                                placeholder='<spring:message code="order.contactInfo" /> '/>
+                    </div>
+                    <div class="input-append">
+                        <label>
+                                <span class="alert alert-error"
+                                      ng-show="displayValidationError && newOrderForm.contactInfo.$error.required">
+                                    <spring:message code="required"/>
+                                </span>
+                        </label>
+                    </div>
+                </div>
                 <input type="submit"
                        class="btn btn-inverse"
                        ng-click="createOrder(newOrderForm);"

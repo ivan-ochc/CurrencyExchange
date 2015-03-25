@@ -30,27 +30,27 @@
 
     </bean>
 
-    <bean id="userManager" class="CurrencyExchange.service.UserManagerImpl" >
+    <bean id="userManager" class="currencyexchange.service.UserManagerImpl" >
         <qualifier value="userQ"/>
     </bean>
 
-    <bean id="orderService" class="CurrencyExchange.service.OrderServiceImpl" >
+    <bean id="orderService" class="currencyexchange.service.OrderServiceImpl" >
         <qualifier value="recordS"/>
     </bean>
 
-    <bean id="exchangeTransactionService" class="CurrencyExchange.service.ExchangeTransactionServiceImpl" >
+    <bean id="exchangeTransactionService" class="currencyexchange.service.ExchangeTransactionServiceImpl" >
         <qualifier value="transactionS"/>
     </bean>
 
-    <bean id="userDAO" class="CurrencyExchange.repository.UserDAOImpl">
+    <bean id="userDAO" class="currencyexchange.repository.UserDAOImpl">
         <qualifier value="userDQ"/>
     </bean>
 
-    <bean id="orderDAO" class="CurrencyExchange.repository.OrderDAOImpl" >
+    <bean id="orderDAO" class="currencyexchange.repository.OrderDAOImpl" >
         <qualifier value="recordD"/>
     </bean>
 
-    <bean id="transactionDAO" class="CurrencyExchange.repository.ExchangeTransactionDAOImpl" >
+    <bean id="transactionDAO" class="currencyexchange.repository.ExchangeTransactionDAOImpl" >
         <qualifier value="transactionD"/>
     </bean>
 
@@ -70,7 +70,7 @@
 
 
 
-    <jpa:repositories base-package="CurrencyExchange.repository"
+    <jpa:repositories base-package="currencyexchange.repository"
                       entity-manager-factory-ref="entityManagerFactory"
                       transaction-manager-ref="transactionManager"/>
 

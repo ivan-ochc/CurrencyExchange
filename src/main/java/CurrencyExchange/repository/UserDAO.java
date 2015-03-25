@@ -1,6 +1,6 @@
-package CurrencyExchange.repository;
+package currencyexchange.repository;
 
-import CurrencyExchange.model.User;
+import currencyexchange.model.User;
 
 import java.util.List;
 

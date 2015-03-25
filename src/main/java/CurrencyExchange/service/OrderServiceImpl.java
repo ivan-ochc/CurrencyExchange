@@ -1,8 +1,8 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
-import CurrencyExchange.model.Order;
-import CurrencyExchange.repository.OrderDAO;
-import CurrencyExchange.vo.OrdersListVO;
+import currencyexchange.model.Order;
+import currencyexchange.repository.OrderDAO;
+import currencyexchange.vo.OrdersListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

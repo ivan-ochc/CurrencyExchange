@@ -1,4 +1,4 @@
-package CurrencyExchange.vo;
+package currencyexchange.vo;
 
 import java.util.List;
 

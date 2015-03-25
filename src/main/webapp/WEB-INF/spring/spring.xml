@@ -8,10 +8,10 @@
     <!-- Basic Configurations -->
     <context:annotation-config/>
 
-    <context:component-scan base-package="CurrencyExchange.controller"/>
-    <context:component-scan base-package="CurrencyExchange.model"/>
-    <context:component-scan base-package="CurrencyExchange.repository"/>
-    <context:component-scan base-package="CurrencyExchange.service"/>
+    <context:component-scan base-package="currencyexchange.controller"/>
+    <context:component-scan base-package="currencyexchange.model"/>
+    <context:component-scan base-package="currencyexchange.repository"/>
+    <context:component-scan base-package="currencyexchange.service"/>
     <!-- SpringJPA -->
     <import resource="spring-jpa.xml"/>
 

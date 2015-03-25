@@ -1,4 +1,4 @@
-package CurrencyExchange.model;
+package currencyexchange.model;
 
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -29,6 +29,8 @@ public class User implements Serializable {
     private String enabled;
     @NotEmpty
     private String password;
+
+    private String location;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
@@ -121,5 +123,13 @@ public class User implements Serializable {
     public void removeTransaction(ExchangeTransaction exchangeTransaction){
         exchangeTransactions.remove(exchangeTransaction);
         exchangeTransaction.setUser(null);
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

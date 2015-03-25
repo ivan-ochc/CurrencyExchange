@@ -1,7 +1,7 @@
-package CurrencyExchange.service;
+package currencyexchange.service;
 
-import CurrencyExchange.model.ExchangeTransaction;
-import CurrencyExchange.vo.TransactionsListVO;
+import currencyexchange.model.ExchangeTransaction;
+import currencyexchange.vo.TransactionsListVO;
 
 public interface ExchangeTransactionService {
 

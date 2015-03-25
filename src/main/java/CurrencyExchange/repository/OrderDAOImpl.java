@@ -1,6 +1,6 @@
-package CurrencyExchange.repository;
+package currencyexchange.repository;
 
-import CurrencyExchange.model.Order;
+import currencyexchange.model.Order;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
