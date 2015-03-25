@@ -1,12 +1,12 @@
-package CurrencyExchange.controller;
+package currencyexchange.controller;
 
-import CurrencyExchange.model.ExchangeTransaction;
-import CurrencyExchange.model.Order;
-import CurrencyExchange.model.User;
-import CurrencyExchange.service.ExchangeTransactionService;
-import CurrencyExchange.service.OrderService;
-import CurrencyExchange.service.UserManager;
-import CurrencyExchange.vo.TransactionsListVO;
+import currencyexchange.model.ExchangeTransaction;
+import currencyexchange.model.Order;
+import currencyexchange.model.User;
+import currencyexchange.service.ExchangeTransactionService;
+import currencyexchange.service.OrderService;
+import currencyexchange.service.UserManager;
+import currencyexchange.vo.TransactionsListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -32,7 +32,8 @@ public class TransactionController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value = "/protected/orders/myTransactions",method = {RequestMethod.GET}) public ModelAndView getMyTransactionsPage() {
+    @RequestMapping(value = "/protected/orders/myTransactions",method = {RequestMethod.GET})
+    public ModelAndView getMyTransactionsPage() {
         ModelAndView myTransactionsView = new ModelAndView("myTransactionsPage");
         return myTransactionsView;
     }
@@ -45,7 +46,7 @@ public class TransactionController {
 
     @RequestMapping(value = "/protected/orders/declineTransaction/{transactionId}", produces = "application/json")
     public ResponseEntity<?> declineTransaction
-            (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("transactionId") Integer transactionId, HttpSession session){
+    (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("transactionId") Integer transactionId, HttpSession session){
         exchangeTransaction =  exchangeTransactionService.getExchangeTransaction(transactionId);
         int resumingAmount = exchangeTransaction.getTransactionAmount();
         Order resumingOrder = exchangeTransaction.getOrder();
@@ -58,7 +59,7 @@ public class TransactionController {
 
     @RequestMapping(value = "/protected/orders/acceptTransaction/{transactionId}", produces = "application/json")
     public ResponseEntity<?> acceptTransaction
-            (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("transactionId") Integer transactionId, HttpSession session){
+    (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("transactionId") Integer transactionId, HttpSession session){
         exchangeTransaction =  exchangeTransactionService.getExchangeTransaction(transactionId);
         User user = userManager.getUserObject(userManager.getUserId(session.getAttribute("currentUser").toString()));
         Order order =  exchangeTransaction.getOrder();
