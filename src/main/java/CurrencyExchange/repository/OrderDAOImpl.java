@@ -3,10 +3,9 @@ package currencyexchange.repository;
 import currencyexchange.model.Order;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
+
 public class OrderDAOImpl implements OrderDAO {
 
     @Autowired
@@ -20,12 +19,13 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public List<Order> getMyOrdersList(String userName) {
-        return sessionFactory.getCurrentSession().createQuery("from Order where userId = (select id from User where name = '" + userName + "') order by orderDate desc").list();
+     return sessionFactory.getCurrentSession().createQuery("from Order where userId = (select id from User where name = '" + userName + "') order by orderDate desc").list();
     }
 
     @Override
-    public List getAllOrdersList(String userName) {
-        return sessionFactory.getCurrentSession().createQuery("from Order where userId not in (select id from User where name = '" + userName + "') order by orderDate desc").list();
+    public List<Order> getAllOrdersList(String userName) {
+        List<Order> allOrdersList = sessionFactory.getCurrentSession().createQuery("from Order where userId not in (select id from User where name = '" + userName + "') order by orderDate desc").list();
+        return allOrdersList;
     }
 
     @Override
@@ -36,22 +36,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public long getSumOfAllCosts(String userName) {
-        List<Long> sum = sessionFactory.getCurrentSession().createQuery("select sum(price) from Order where userId = (select id from User where name = '" + userName + "')").list();
-        long latestSum = 0;
-        if (!sum.contains(null)) {
-        for (long sumInList : sum) {
-            latestSum = sumInList;
-            }
-        }  else {
-                 return latestSum;
-         }
-      return latestSum;
-
-}
-
-    @Override
-    public Order getOrder(Integer recordId) {
+    public Order getOrder(int recordId) {
         Order order = (Order) sessionFactory.getCurrentSession().get(Order.class, recordId);
         return order;
     }
