@@ -46,7 +46,7 @@
                      </sec:authorize>
                 </ul>
                 <ul class="nav pull-right">
-                    <li><a href="<c:url value='/logout' />" title='<spring:message code="header.logout"/>'><p class="displayInLine"><spring:message code="header.logout"/>&nbsp;(${currentUser})</p></a></li>
+                    <li><a href="<c:url value='/logout' />" title='<spring:message code="header.logout"/>'><p class="displayInLine"><spring:message code="header.logout"/>&nbsp;(${user.name})</p></a></li>
                 </ul>
             </div>
         </div>
