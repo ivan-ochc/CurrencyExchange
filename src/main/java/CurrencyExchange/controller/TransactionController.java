@@ -1,11 +1,14 @@
 package currencyexchange.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import currencyexchange.emailservice.MailExecutor;
 import currencyexchange.model.ExchangeTransaction;
 import currencyexchange.model.Order;
 import currencyexchange.model.User;
 import currencyexchange.service.ExchangeTransactionService;
 import currencyexchange.service.OrderService;
 import currencyexchange.service.UserManager;
+import currencyexchange.view.View;
 import currencyexchange.vo.TransactionsListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,6 +35,9 @@ public class TransactionController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private MailExecutor mailExecutor;
+
     @RequestMapping(value = "/protected/orders/myTransactions",method = {RequestMethod.GET})
     public ModelAndView getMyTransactionsPage() {
         ModelAndView myTransactionsView = new ModelAndView("myTransactionsPage");
@@ -39,6 +45,7 @@ public class TransactionController {
     }
 
     @RequestMapping(value = "/protected/orders/myTransactions",method = RequestMethod.GET, produces = "application/json")
+    @JsonView(View.Public.class)
     public ResponseEntity<?> getMyTransactions(HttpSession session) {
         return createMyTransactionsListResponse(session);
     }
@@ -53,6 +60,11 @@ public class TransactionController {
         int orderAmount = resumingOrder.getAmount();
         resumingOrder.setAmount(orderAmount+resumingAmount);
         orderService.updateOrder(resumingOrder);
+
+        User userReceiver = exchangeTransaction.getUser();
+
+        mailExecutor.sendMailTo(userReceiver.getEmail(),"Your offer was declined", resumingOrder.getAuthorName() + " has declined your offer.");
+
         exchangeTransactionService.declineTransaction(exchangeTransaction);
         return createMyTransactionsListResponse(session);
     }
@@ -61,8 +73,9 @@ public class TransactionController {
     public ResponseEntity<?> acceptTransaction
     (@ModelAttribute("exchangeTransaction") ExchangeTransaction exchangeTransaction, @PathVariable("transactionId") Integer transactionId, HttpSession session){
         exchangeTransaction =  exchangeTransactionService.getExchangeTransaction(transactionId);
-        User user = userManager.getUserObject(userManager.getUserId(session.getAttribute("currentUser").toString()));
+        User user = (User)session.getAttribute("user");
         Order order =  exchangeTransaction.getOrder();
+        User userReceiver = exchangeTransaction.getUser();
         if (order.getAmount() == 0 && order.getExchangeTransactions().size() == 1) {
             user.removeOrder(order);
             orderService.removeOrder(order);
@@ -71,6 +84,10 @@ public class TransactionController {
             order.removeTransaction(exchangeTransaction);
             exchangeTransactionService.declineTransaction(exchangeTransaction);
         }
+
+
+        mailExecutor.sendMailTo(userReceiver.getEmail(), "Your offer was accepted", order.getAuthorName() + " has accepted your offer.");
+
         return createMyTransactionsListResponse(session);
     }
 
