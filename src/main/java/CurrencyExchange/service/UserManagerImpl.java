@@ -4,16 +4,13 @@ import currencyexchange.model.User;
 import currencyexchange.repository.UserDAO;
 import currencyexchange.vo.UserListVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+
 public class UserManagerImpl implements UserManager {
     @Autowired
-    @Qualifier("userDQ")
     private UserDAO userDAO;
 
     @Override
@@ -25,20 +22,20 @@ public class UserManagerImpl implements UserManager {
 
     @Override
     @Transactional
-    public String getUser(User user) {
-       return userDAO.getUser(user);
-    }
-
-    @Override
-    @Transactional
     public int getUserId(String userName) {
         return userDAO.getUserId(userName);
     }
 
     @Override
     @Transactional
-    public User getUserObject(int userId) {
-        return userDAO.getUserObject(userId);
+    public String getUserName(String userName) {
+        return userDAO.getUserName(userName);
+    }
+
+    @Override
+    @Transactional
+    public User getUserObjectById(int userId) {
+        return userDAO.getUserObjectById(userId);
     }
 
     @Override
@@ -52,5 +49,11 @@ public class UserManagerImpl implements UserManager {
     @Transactional
     public void deleteUser(User user) {
         userDAO.deleteUser(user);
+    }
+
+    @Override
+    @Transactional
+    public List<String> getAllEmails(String userName) {
+        return userDAO.getAllEmails(userName);
     }
 }
