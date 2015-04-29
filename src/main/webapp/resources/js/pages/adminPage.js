@@ -30,7 +30,7 @@ function adminController($scope, $http) {
     $scope.deleteUser = function () {
         $scope.lastAction = 'delete';
 
-        var url = $scope.url +"/"+  $scope.lastAction +"/"+ $scope.user.id;
+        var url = $scope.url +"/"+  $scope.lastAction +"/"+ $scope.user.userId;
 
         $scope.startDialogAjaxRequest();
 
