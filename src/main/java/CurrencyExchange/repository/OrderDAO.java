@@ -8,15 +8,13 @@ public interface OrderDAO {
 
     public void addOrder(Order order);
 
-    public List getMyOrdersList(String userName);
+    public List<Order> getMyOrdersList(String userName);
 
-    public List getAllOrdersList(String userName);
+    public List<Order> getAllOrdersList(String userName);
 
     public void removeOrder(Order order);
 
-    public long getSumOfAllCosts(String userName);
-
-    public Order getOrder(Integer recordId);
+    public Order getOrder(int recordId);
 
     public void updateOrder(Order order);
 
