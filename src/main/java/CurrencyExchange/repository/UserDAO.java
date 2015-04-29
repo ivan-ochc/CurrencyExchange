@@ -7,9 +7,10 @@ import java.util.List;
 public interface UserDAO {
 
     public void saveUser(User user);
-    public String getUser(User user);
     public int getUserId(String userName);
-    public User getUserObject(int userId);
-    public List getUserList();
+    public String getUserName(String userName);
+    public User getUserObjectById(int userId);
+    public List<User> getUserList();
     public void deleteUser(User user);
+    public List<String> getAllEmails(String userName);
 }
