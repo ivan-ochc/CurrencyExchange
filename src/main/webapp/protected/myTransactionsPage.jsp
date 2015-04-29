@@ -7,6 +7,9 @@
         <div class="alert alert-info" ng-class="{'': displaySuccessDeclineMessage == true, 'none': displaySuccessDeclineMessage != true}">
             <spring:message code="transaction.transactionDecline" />
         </div>
+        <div class="alert alert-info" ng-class="{'': displaySuccessAcceptMessage == true, 'none': displaySuccessAcceptMessage != true}">
+            <spring:message code="transaction.transactionAccept" />
+        </div>
         <div id="loadingModal" class="modal hide fade in centering"
              role="dialog"
              aria-hidden="true">
