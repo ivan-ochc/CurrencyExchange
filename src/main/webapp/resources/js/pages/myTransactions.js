@@ -37,9 +37,12 @@ function myTransactionsController($scope, $http) {
 
     $scope.declineTransaction = function() {
         $scope.displaySuccessDeclineMessage = false;
+        $scope.displaySuccessAcceptMessage = false;
         $scope.lastAction = 'declineTransaction';
 
         var url = $scope.url +"/"+ $scope.lastAction +"/"+ $scope.exchangeTransaction.transactionId;
+
+        $scope.startDialogAjaxRequest();
 
         $http.get(url)
             .success(function (data) {
@@ -53,13 +56,17 @@ function myTransactionsController($scope, $http) {
     }
 
     $scope.acceptTransaction = function() {
+        $scope.displaySuccessAcceptMessage = false;
         $scope.displaySuccessDeclineMessage = false;
         $scope.lastAction = 'acceptTransaction';
 
         var url = $scope.url +"/"+ $scope.lastAction +"/"+ $scope.exchangeTransaction.transactionId;
 
+        $scope.startDialogAjaxRequest();
+
         $http.get(url)
             .success(function (data) {
+                $scope.displaySuccessAcceptMessage = true;
                 $scope.finishAjaxCallOnSuccess(data, "#acceptTransactionModal", false);
             })
             .error(function () {
@@ -68,21 +75,16 @@ function myTransactionsController($scope, $http) {
 
     }
 
-
     $scope.populateTable = function (data) {
 
         $scope.page = {source: data.transactions};
 
     }
 
-
-
     $scope.selectedTransaction = function (exchangeTransaction) {
         var selectedTransaction = angular.copy(exchangeTransaction);
         $scope.exchangeTransaction = selectedTransaction;
     }
-
-
 
     $scope.startDialogAjaxRequest = function () {
         $scope.displayValidationError = false;
