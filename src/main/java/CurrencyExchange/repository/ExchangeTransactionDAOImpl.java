@@ -17,19 +17,15 @@ public class ExchangeTransactionDAOImpl implements ExchangeTransactionDAO {
     }
 
     @Override
-    public List getTransactions(String userName) {
-        List transactions = sessionFactory.getCurrentSession().createQuery("from ExchangeTransaction where orderId in (select orderId from Order where authorName = '"+ userName +"' )").list();
+    public List<ExchangeTransaction> getTransactions(String userName) {
+        List<ExchangeTransaction> transactions = sessionFactory.getCurrentSession().createQuery("from ExchangeTransaction where orderId in (select orderId from Order where authorName = '"+ userName +"' )").list();
+    //      List transactions = sessionFactory.getCurrentSession().createQuery("select u.name as name, t.transactionAmount, o.currency, o.exchangeRate, o.orderType, u.location from ExchangeTransaction t, User u, Order o where o.orderId in (select orderId from Order where authorName = '"+ userName +"' ) and t.order = o and t.user = u").list();
         return transactions;
     }
 
     @Override
     public void declineTransaction(ExchangeTransaction exchangeTransaction) {
         sessionFactory.getCurrentSession().delete(exchangeTransaction);
-    }
-
-    @Override
-    public void acceptTransaction() {
-
     }
 
     @Override
