@@ -1,7 +1,8 @@
 package currencyexchange.model;
 
-
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import currencyexchange.view.View;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.Email;
@@ -19,29 +20,36 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @JsonView(View.Secure.class)
     private int userId;
 
     @NotEmpty
     @Email
+    @JsonView(View.Secure.class)
     private String email;
     @Size(min=2, max=30)
+    @JsonView(View.Name.class)
     private String name;
+    @JsonView(View.Secure.class)
     private String enabled;
     @NotEmpty
+    @JsonView(View.Secure.class)
     private String password;
-
+    @JsonView(View.Public.class)
     private String location;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
     private Role role;
 
-      @OneToMany(fetch = FetchType.EAGER,mappedBy = "user", orphanRemoval=true)
-      @Cascade({CascadeType.ALL})
-      private List<Order> orders = new ArrayList<Order>();
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user", orphanRemoval=true)
+    @Cascade({CascadeType.ALL})
+
+    private List<Order> orders = new ArrayList<Order>();
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user", orphanRemoval=true)
     @Cascade({CascadeType.ALL})
+
     private List<ExchangeTransaction> exchangeTransactions = new ArrayList<ExchangeTransaction>();
 
     public int getId() {
@@ -51,6 +59,7 @@ public class User implements Serializable {
     public void setId(int userId) {
         this.userId = userId;
     }
+
 
     public String getEmail() {
         return email;
@@ -68,6 +77,7 @@ public class User implements Serializable {
         this.name = name;
     }
 
+
     public Role getRole() {
         return role;
     }
@@ -76,6 +86,7 @@ public class User implements Serializable {
         this.role = role;
     }
 
+    @JsonView(View.Secure.class)
     public String getPassword() {
         return password;
     }
@@ -101,7 +112,7 @@ public class User implements Serializable {
         this.orders = orders;
     }
     @JsonIgnore
-    public List getTransactions(){
+    public List<ExchangeTransaction> getTransactions(){
         return exchangeTransactions;
     }
 
