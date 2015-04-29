@@ -4,7 +4,6 @@ import currencyexchange.model.ExchangeTransaction;
 import currencyexchange.repository.ExchangeTransactionDAO;
 import currencyexchange.vo.TransactionsListVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
 public class ExchangeTransactionServiceImpl implements ExchangeTransactionService {
 
     @Autowired
-    @Qualifier("transactionD")
     private ExchangeTransactionDAO exchangeTransactionDAO;
 
     @Override
@@ -24,7 +22,7 @@ public class ExchangeTransactionServiceImpl implements ExchangeTransactionServic
     @Override
     @Transactional
     public TransactionsListVO getTransactions(String userName) {
-        List result =  exchangeTransactionDAO.getTransactions(userName);
+        List<ExchangeTransaction> result =  exchangeTransactionDAO.getTransactions(userName);
         return new TransactionsListVO(result);
     }
 
@@ -32,11 +30,6 @@ public class ExchangeTransactionServiceImpl implements ExchangeTransactionServic
     @Transactional
     public void declineTransaction(ExchangeTransaction exchangeTransaction) {
         exchangeTransactionDAO.declineTransaction(exchangeTransaction);
-    }
-
-    @Override
-    public void acceptTransaction() {
-
     }
 
     @Override
