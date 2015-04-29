@@ -1,12 +1,15 @@
 package currencyexchange.model;
 
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import currencyexchange.view.View;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,20 +18,25 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-public class Order implements java.io.Serializable{
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int orderId;
-
+    @JsonView(View.Public.class)
     private String authorName;
+    @JsonView(View.Public.class)
     private String orderType;
+    @JsonView(View.Public.class)
     private String currency;
+    @JsonView(View.Public.class)
     private BigDecimal exchangeRate;
     private int amount;
+    @JsonView(View.Public.class)
     private String location;
     private String contactInfo;
     private Date orderDate;
+
     @ManyToOne
     @JoinColumn(name = "userId", insertable = true, updatable = false)
     private User user;
@@ -75,7 +83,7 @@ public class Order implements java.io.Serializable{
         return user;
     }
     @JsonIgnore
-    public List getExchangeTransactions(){
+    public List<ExchangeTransaction> getExchangeTransactions(){
         return exchangeTransactions;
     }
 
