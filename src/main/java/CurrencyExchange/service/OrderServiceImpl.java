@@ -4,16 +4,13 @@ import currencyexchange.model.Order;
 import currencyexchange.repository.OrderDAO;
 import currencyexchange.vo.OrdersListVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+
 public class OrderServiceImpl implements OrderService {
     @Autowired
-    @Qualifier("recordD")
     private OrderDAO orderDAO;
 
 
@@ -23,11 +20,11 @@ public class OrderServiceImpl implements OrderService {
         orderDAO.addOrder(order);
     }
 
-    @Override
-    @Transactional
-    public List<Order> getOrdersList(String userName) {
-        return orderDAO.getMyOrdersList(userName);
-    }
+//    @Override
+//    @Transactional
+//    public List<Order> getOrdersList(String userName) {
+//        return orderDAO.getMyOrdersList(userName);
+//    }
 
     @Override
     @Transactional
@@ -37,13 +34,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public long getSumOfAllCosts(String userName) {
-        return orderDAO.getSumOfAllCosts(userName);
-    }
-
-    @Override
-    @Transactional
-    public Order getOrder(Integer recordId) {
+    public Order getOrder(int recordId) {
         return orderDAO.getOrder(recordId);
     }
 
