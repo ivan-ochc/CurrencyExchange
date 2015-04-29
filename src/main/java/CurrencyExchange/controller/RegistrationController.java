@@ -36,7 +36,7 @@ public class RegistrationController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") @Valid User user){
 
-        String userName = userManager.getUser(user);
+        String userName = userManager.getUserName(user.getName());
 
         if (userName == null) {
             user.setEnabled("true");
